@@ -1,3 +1,5 @@
+package shit;
+
 import java.util.ArrayList;
 
 public abstract class BankAccount {
@@ -31,12 +33,19 @@ public abstract class BankAccount {
     abstract void repAccount(double money);
     //Получение информации по владельцу
     abstract String getBio();
+
     //Рассчет комисси и штрафов
     abstract void makeFineAndOther();
+
     //Детализация по счету
     abstract ArrayList getDetalis();
 
-
+    //Проверка на наличие денег
+    protected boolean checkMoney(double money) {
+        if (this.account < money) {
+            return false;
+        } else return true;
+    }
 
 
 }

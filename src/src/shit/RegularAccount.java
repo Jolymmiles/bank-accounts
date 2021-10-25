@@ -1,3 +1,5 @@
+package shit;
+
 import java.util.ArrayList;
 
 public class RegularAccount extends BankAccount {
@@ -8,21 +10,6 @@ public class RegularAccount extends BankAccount {
     }
 
 
-
-    //Проверка на правильность пина
-//    private boolean pinCheck(int pin) {
-//        boolean check;
-//        pin.hashCode()...
-//
-//        return check;
-//    }
-
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
     @Override
     public double getAccount() {
         return this.account;
@@ -30,22 +17,34 @@ public class RegularAccount extends BankAccount {
 
     @Override //Снятие денег со счета
     public void getSomeMoney(double money) {
-        this.account -= money;
-        this.detalis.add("Снятие денег: " + money);
+        if (checkMoney(money)) {
+            this.account -= money;
+            this.detalis.add("Снятие денег: " + money);
+        } else {
+            System.out.println("На вашем счету недостаточно денег.");
+        }
+
     }
 
     @Override //Покупка чего-то
     public void spendMoney(double money) {
-        this.account -= money;
-        this.detalis.add("Покупка на сумму: " + money);
-    }
+        if (checkMoney(money)) {
+            this.account -= money;
+            this.detalis.add("Покупка на сумму: " + money);
+        } else {
+            System.out.println("На вашем счету недостаточно денег.");
+        }
 
+
+
+    }
+    //Пополнение денег
     @Override
     public void repAccount(double money) {
         this.account += money;
-        this.detalis.add("Пополнение счета на сумму:" + money);
     }
 
+    //Получить данные по владельцу
     @Override
     public String getBio() {
         return bio;
@@ -64,13 +63,11 @@ public class RegularAccount extends BankAccount {
     @Override
     public ArrayList<String> getDetalis() {
         return detalis;
-
-
     }
 
     @Override
     public String toString() {
-        return "RegularAccount{" +
+        return "shit.RegularAccount{" +
                 "account=" + account +
                 ", bio='" + bio + '\'' +
                 ", pin=" + pin +
