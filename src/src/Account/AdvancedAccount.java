@@ -39,16 +39,7 @@ public class AdvancedAccount extends BankAccount {
         }
     }
 
-    //Пополнение счета
-    public void repAccount(double money) {
-        this.account += money;
-        this.detalis.add("Пополнение счета на сумму:" + money);
-    }
 
-
-    public String getBio() {
-        return bio;
-    }
 
 
     void makeFineAndOther() {

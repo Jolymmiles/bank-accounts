@@ -1,7 +1,5 @@
 package Account;
 
-import java.util.ArrayList;
-
 
 public class RegularAccount extends BankAccount {
 

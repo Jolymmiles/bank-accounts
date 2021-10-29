@@ -1,6 +1,5 @@
 package Account;
 
-import java.util.ArrayList;
 
 public class YouthAccount extends BankAccount{
 
