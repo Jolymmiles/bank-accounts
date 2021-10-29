@@ -28,20 +28,6 @@ public class AdvancedAccount extends BankAccount {
         }
     }
 
-    //Покупка чего-то
-    public void spendMoney(double money) {
-        if (checkMoney(money)) {
-            this.account -= money;
-            this.detalis.add("Покупка на сумму: " + money);
-            this.account += money*fine < 100 ? money*fine : 0;
-        } else {
-            System.out.println("На вашем счету недостаточно денег.");
-        }
-    }
-
-
-
-
     void makeFineAndOther() {
         this.account -= Math.min(fine, this.account*commission);
     }

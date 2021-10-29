@@ -54,6 +54,7 @@ public abstract class BankAccount {
             if (checkMoney(money)) {
                 this.account -= money;
                 this.account += money * bonus;
+                this.account += bonus == 0.02 | bonus == 0 ? money*bonus : money*this.bonus < 100 ? money*this.bonus : 0;
                 this.detalis.add(LocalDateTime.now().format(formatter)+" Покупка на сумму: " + money);
             } else {
                 System.out.println("На вашем счету недостаточно денег.");
