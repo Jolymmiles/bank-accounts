@@ -18,16 +18,17 @@ public abstract class BankAccount {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     //Конструктор
-    protected BankAccount(double account, String bio, int pin, int openMonth) {
+    protected BankAccount(double account, String bio, Integer pin, int openMonth, double fine, double commission, double bonus) {
         this.account = account;
         this.bio = bio;
-        this.pin = pin;
+        this.pin = pin.hashCode();
         this.openMonth = openMonth;
+        this.fine = fine;
+        this.commission = commission;
+        this.bonus = bonus;
         this.detalis = new ArrayList<String>();
     }
 
-    protected BankAccount() {
-    }
 
     //Проверка пин кода
     protected boolean checkPin(Integer inputPin) {
@@ -42,6 +43,7 @@ public abstract class BankAccount {
     public double getAccount() {
         return this.account;
     }
+
     //Снятие денег
     abstract void getSomeMoney(double money, Integer inputPin);
 

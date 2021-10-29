@@ -6,15 +6,10 @@ import java.util.ArrayList;
 public class RegularAccount extends BankAccount {
 
     //Конструктор класса
+
+
     public RegularAccount(double account, String bio, Integer pin, int openMonth) {
-        this.account = account;
-        this.bio = bio;
-        this.pin = pin.hashCode();
-        this.openMonth = openMonth;
-        this.fine = 100;
-        this.commission = 0.1;
-        this.bonus = 0;
-        this.detalis = new ArrayList<String>();
+        super(account, bio, pin, openMonth, 100, 0.1, 0);
     }
 
 

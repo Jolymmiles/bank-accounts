@@ -1,19 +1,11 @@
 package Account;
 
-import java.util.ArrayList;
-
 public class AdvancedAccount extends BankAccount {
 
     public AdvancedAccount(double account, String bio, Integer pin, int openMonth) {
-        this.account = account;
-        this.bio = bio;
-        this.pin = pin.hashCode();
-        this.openMonth = openMonth;
-        this.fine = 100;
-        this.commission = 0.1;
-        this.bonus = 0.01;
-        this.detalis = new ArrayList<String>();
+        super(account, bio, pin, openMonth, 100, 0.1, 0.01);
     }
+
 
 
 
@@ -21,20 +13,19 @@ public class AdvancedAccount extends BankAccount {
         return this.account;
     }
 
-    @Override
-    void getSomeMoney(double money, Integer inputPin) {
-
-    }
-
     //Снятие денег со счета
-    public void getSomeMoney(double money) {
-        if (checkMoney(money)) {
-            this.account -= money;
-            this.detalis.add("Снятие денег: " + money);
+    @Override
+    public void getSomeMoney(double money, Integer inputPin) {
+        if (checkPin(inputPin)) {
+            if (checkMoney(money)) {
+                this.account -= money;
+                this.detalis.add("Снятие денег: " + money);
+            } else {
+                System.out.println("На вашем счету недостаточно денег.");
+            }
         } else {
-            System.out.println("На вашем счету недостаточно денег.");
+            pinError();
         }
-
     }
 
     //Покупка чего-то

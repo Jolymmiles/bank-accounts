@@ -5,14 +5,7 @@ import java.util.ArrayList;
 public class YouthAccount extends BankAccount{
 
     public YouthAccount(double account, String bio, Integer pin, int openMonth) {
-        this.account = account;
-        this.bio = bio;
-        this.pin = pin.hashCode();
-        this.openMonth = openMonth;
-        this.fine = 300;
-        this.commission = 0.1;
-        this.bonus = 0.02;
-        this.detalis = new ArrayList<String>();
+        super(account, bio, pin, openMonth, 300, 0.1, 0.02);
     }
 
     //Снятие денег со счета
