@@ -1,5 +1,7 @@
 package Account;
 
+import java.time.LocalDateTime;
+
 public class AdvancedAccount extends BankAccount {
 
     public AdvancedAccount(double account, String bio, Integer pin, int openMonth) {
@@ -30,21 +32,19 @@ public class AdvancedAccount extends BankAccount {
 
     void makeFineAndOther() {
         this.account -= Math.min(fine, this.account*commission);
+        this.detalis.add(LocalDateTime.now().format(formatter)+" Обслуживание: " + Math.min(fine, this.account*commission));
     }
 
 
 
     @Override
     public String toString() {
-        return "shit.RegularAccount{" +
-                "account=" + account +
-                ", bio='" + bio + '\'' +
-                ", pin=" + pin +
-                ", openMonth=" + openMonth +
-                ", fine=" + fine +
-                ", commission=" + commission +
-                ", bonus=" + bonus +
-                ", detalis=" + detalis +
-                '}';
+        return "\nДенег на счету: " + account +
+                "\nФИО Владельца: " + bio +
+                "\nМесяц открытия: " + openMonth +
+                "\nШтраф: " + fine +
+                "\nКомиссия: " + commission +
+                "\nКэшбэк: " + bonus ;
+        //"\nДетализация=" + detalis;
     }
 }

@@ -15,7 +15,7 @@ public abstract class BankAccount {
     protected double bonus;
     protected ArrayList<String> detalis;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     //Конструктор
     protected BankAccount(double account, String bio, Integer pin, int openMonth, double fine, double commission, double bonus) {
