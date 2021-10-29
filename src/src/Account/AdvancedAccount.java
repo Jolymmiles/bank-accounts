@@ -1,21 +1,32 @@
-package shit;
+package Account;
 
 import java.util.ArrayList;
 
-public class RegularAccount extends BankAccount {
+public class AdvancedAccount extends BankAccount {
 
-
-    public RegularAccount(double account, String bio, int pin, int openMonth) {
-        super(account, bio, pin, openMonth, 100, 0.1, 0);
+    public AdvancedAccount(double account, String bio, Integer pin, int openMonth) {
+        this.account = account;
+        this.bio = bio;
+        this.pin = pin.hashCode();
+        this.openMonth = openMonth;
+        this.fine = 100;
+        this.commission = 0.1;
+        this.bonus = 0.01;
+        this.detalis = new ArrayList<String>();
     }
 
 
-    @Override
+
     public double getAccount() {
         return this.account;
     }
 
-    @Override //Снятие денег со счета
+    @Override
+    void getSomeMoney(double money, Integer inputPin) {
+
+    }
+
+    //Снятие денег со счета
     public void getSomeMoney(double money) {
         if (checkMoney(money)) {
             this.account -= money;
@@ -26,44 +37,34 @@ public class RegularAccount extends BankAccount {
 
     }
 
-    @Override //Покупка чего-то
+    //Покупка чего-то
     public void spendMoney(double money) {
         if (checkMoney(money)) {
             this.account -= money;
             this.detalis.add("Покупка на сумму: " + money);
+            this.account += money*fine < 100 ? money*fine : 0;
         } else {
             System.out.println("На вашем счету недостаточно денег.");
         }
-
-
-
     }
-    //Пополнение денег
-    @Override
+
+    //Пополнение счета
     public void repAccount(double money) {
         this.account += money;
+        this.detalis.add("Пополнение счета на сумму:" + money);
     }
 
-    //Получить данные по владельцу
-    @Override
+
     public String getBio() {
         return bio;
     }
 
-    @Override
+
     void makeFineAndOther() {
         this.account -= Math.min(fine, this.account*commission);
-        if (this.account < 5000) {
-            this.account -= fine;
-            this.detalis.add("Штраф: " + fine);
-        }
-        this.detalis.add("Обслуживание: " + Math.min(fine, this.account*commission));
     }
 
-    @Override
-    public ArrayList<String> getDetalis() {
-        return detalis;
-    }
+
 
     @Override
     public String toString() {
