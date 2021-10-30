@@ -3,6 +3,7 @@ package Account;
 import java.time.LocalDateTime;
 
 public class RegularAccount extends BankAccount {
+    final int FINE_ACCOUNT = 5000;
 
     //Конструктор класса
     public RegularAccount(double account, String bio, Integer pin, int openMonth) {
@@ -29,7 +30,7 @@ public class RegularAccount extends BankAccount {
     @Override
     public void makeFineAndOther() {
         this.account -= Math.min(fine, this.account*commission);
-        if (this.account < 5000) {
+        if (this.account < FINE_ACCOUNT) {
             this.account -= fine;
             this.detalis.add(LocalDateTime.now().format(formatter)+" Штраф: " + fine);
         }
