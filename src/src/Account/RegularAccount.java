@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 public class RegularAccount extends BankAccount {
 
     //Конструктор класса
-
-
     public RegularAccount(double account, String bio, Integer pin, int openMonth) {
         super(account, bio, pin, openMonth, 100, 0.1, 0);
     }

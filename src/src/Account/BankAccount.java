@@ -39,14 +39,11 @@ public abstract class BankAccount {
         System.out.println("Неверный пин-код!");
     }
 
-    //Получение информации о кол-ве денег на счету
-    public double getAccount() {
-        return this.account;
-    }
+    //Рассчет комисси и штрафов
+    abstract void makeFineAndOther();
 
     //Снятие денег
     abstract void getSomeMoney(double money, Integer inputPin);
-
 
     //Оплатить что-либо
     public void spendMoney(double money, Integer inputPin) {
@@ -73,13 +70,15 @@ public abstract class BankAccount {
         }
     }
 
+    //Получение информации о кол-ве денег на счету
+    public double getAccount() {
+        return this.account;
+    }
+
     //Получение информации по владельцу
     public String getBio() {
         return this.bio;
     }
-
-    //Рассчет комисси и штрафов
-    abstract void makeFineAndOther();
 
     //Детализация по счету
     public void getDetalis() {

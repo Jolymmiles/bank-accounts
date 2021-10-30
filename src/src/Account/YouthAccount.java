@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public class YouthAccount extends BankAccount{
 
+    //Конструктор класса
     public YouthAccount(double account, String bio, Integer pin, int openMonth) {
         super(account, bio, pin, openMonth, 300, 0.1, 0.02);
     }
@@ -24,8 +25,7 @@ public class YouthAccount extends BankAccount{
         }
     }
 
-    void makeFineAndOther() {
-        this.account -= Math.min(fine, this.account*commission);
+    public void makeFineAndOther() {
         if (this.account < 5000) {
             this.account -= fine;
             this.detalis.add(LocalDateTime.now().format(formatter)+" Штраф: " + fine);

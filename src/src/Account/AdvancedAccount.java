@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class AdvancedAccount extends BankAccount {
 
+    //Конструктор класса
     public AdvancedAccount(double account, String bio, Integer pin, int openMonth) {
         super(account, bio, pin, openMonth, 100, 0.1, 0.01);
     }
@@ -30,7 +31,8 @@ public class AdvancedAccount extends BankAccount {
         }
     }
 
-    void makeFineAndOther() {
+    //Обслуживание
+    public void makeFineAndOther() {
         this.account -= Math.min(fine, this.account*commission);
         this.detalis.add(LocalDateTime.now().format(formatter)+" Обслуживание: " + Math.min(fine, this.account*commission));
     }
