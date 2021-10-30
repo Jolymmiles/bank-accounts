@@ -36,16 +36,4 @@ public class AdvancedAccount extends BankAccount {
         this.account -= Math.min(fine, this.account*commission);
         this.detalis.add(LocalDateTime.now().format(formatter)+" Обслуживание: " + Math.min(fine, this.account*commission));
     }
-
-
-
-    @Override
-    public String toString() {
-        return "\nДенег на счету: " + account +
-                "\nФИО Владельца: " + bio +
-                "\nМесяц открытия: " + openMonth +
-                "\nШтраф: " + fine +
-                "\nКомиссия: " + commission +
-                "\nКэшбэк: " + bonus ;
-    }
 }

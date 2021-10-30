@@ -97,5 +97,13 @@ public abstract class BankAccount {
         return !(this.account < money);
     }
 
-
+    @Override
+    public String toString() {
+        return "\nДенег на счету: " + this.account +
+                "\nФИО Владельца: " + this.bio +
+                "\nМесяц открытия: " + this.openMonth +
+                "\nШтраф: " + this.fine +
+                "\nКомиссия: " + this.commission +
+                "\nКэшбэк: " + this.bonus ;
+    }
 }
