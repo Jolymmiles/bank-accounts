@@ -46,13 +46,13 @@ public abstract class BankAccount {
     abstract void getSomeMoney(double money, Integer inputPin);
 
     //Оплатить что-либо
-    public void spendMoney(double money, Integer inputPin) {
+    public void spendMoney(double money, Integer inputPin, String shopName) {
         if (checkPin(inputPin)) {
             if (checkMoney(money)) {
                 this.account -= money;
                 this.account += money * bonus;
                 this.account += bonus == 0.02 | bonus == 0 ? money*bonus : money*this.bonus < 100 ? money*this.bonus : 0;
-                this.detalis.add(LocalDateTime.now().format(formatter)+" Покупка на сумму: " + money);
+                this.detalis.add(LocalDateTime.now().format(formatter)+" Покупка на сумму: " + money + " " + shopName);
             } else {
                 System.out.println("На вашем счету недостаточно денег.");
             }
@@ -71,8 +71,13 @@ public abstract class BankAccount {
     }
 
     //Получение информации о кол-ве денег на счету
-    public double getAccount() {
-        return this.account;
+    public double getAccount(Integer inputPin) {
+        if (checkPin(inputPin)) {
+            return this.account;
+        } else {
+            pinError();
+            return 0;
+        }
     }
 
     //Получение информации по владельцу

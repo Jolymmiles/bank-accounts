@@ -8,8 +8,9 @@ public class Main {
         RegularAccount regularAccount = new RegularAccount(123, "Иванов Иван Иванович", 1234, 5);
 
         regularAccount.repAccount(5000, inputPin());
-        regularAccount.spendMoney(123, inputPin());
-        regularAccount.spendMoney(1234, inputPin());
+        regularAccount.spendMoney(123, inputPin(), "Летуаль");
+        regularAccount.spendMoney(1234, inputPin(), "Летуаль");
+        regularAccount.getAccount(inputPin());
         regularAccount.makeFineAndOther();
 
         System.out.println(regularAccount);

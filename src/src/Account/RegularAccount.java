@@ -45,6 +45,5 @@ public class RegularAccount extends BankAccount {
                 "\nШтраф: " + fine +
                 "\nКомиссия: " + commission +
                 "\nКэшбэк: " + bonus ;
-                //"\nДетализация=" + detalis;
     }
 }

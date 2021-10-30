@@ -47,6 +47,5 @@ public class AdvancedAccount extends BankAccount {
                 "\nШтраф: " + fine +
                 "\nКомиссия: " + commission +
                 "\nКэшбэк: " + bonus ;
-        //"\nДетализация=" + detalis;
     }
 }

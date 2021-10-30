@@ -41,7 +41,6 @@ public class YouthAccount extends BankAccount{
                 "\nШтраф: " + fine +
                 "\nКомиссия: " + commission +
                 "\nКэшбэк: " + bonus ;
-        //"\nДетализация=" + detalis;
     }
 
 }
