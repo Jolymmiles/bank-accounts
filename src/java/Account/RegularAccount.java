@@ -1,6 +1,5 @@
 package Account;
 
-
 import java.time.LocalDateTime;
 
 public class RegularAccount extends BankAccount {
